@@ -1,0 +1,127 @@
+body {
+    margin: 0 auto;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.mainView {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sideBar {
+    position: fixed;
+    width: 30%;
+    left: 100%;
+    top: 0;
+    padding: 25px;
+    padding-top: 50px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.42);
+}
+
+.slide-in {
+    position: fixed;
+    transform: translateX(-100%);
+    transition-delay: .1s;
+    transition: 0.6s ease-in all;
+}
+
+.slide-out {
+    position: fixed;
+    transition-delay: .1s;
+    transform: translateX(100%);
+    transition: 0.6s ease-in all;
+}
+
+.addCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addCard__titleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.addCard__title {
+
+}
+
+.addCard__description {
+    width: 95%;
+}
+
+.addCard__form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+}
+
+.addCard__inputs {
+    width: 80%;
+    margin: 10px 0;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+button.addCard__inputs {
+    padding: 10px 0;
+    width: calc(80% + 20px)
+}
+
+.formatCard__wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    background: rgb(22, 22, 22);
+}
+
+.formatCard__scrollThrough {
+    height: 90vh;
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    background: rgb(22, 22, 22);
+    color: black;
+    white-space:nowrap;
+}
+
+.card {
+    background-color: white;
+    margin: 0 80px;
+    min-width: 500px;
+    min-height: 280px;
+}
+
+.search__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 50px;
+}
+
+#searchBar {
+    width: 300px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    padding: 15px;
+}
+
