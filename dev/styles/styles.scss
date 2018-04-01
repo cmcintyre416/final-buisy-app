@@ -169,10 +169,13 @@ button.addCard__inputs {
     min-height: 280px;
     display: flex;
     flex-direction: column;
+    padding: 0 40px;
+    &:hover {
+        box-shadow: 3px 3px 8px #fff;
+    }
     ul {
         display: flex;
         flex-direction: column;
-        padding: 0 40px;
         li {
             list-style: none;
             letter-spacing: 1px;
@@ -189,6 +192,10 @@ button.addCard__inputs {
             }
         }
     }
+}
+
+ul.card__list {
+    padding: 0;
 }
 
 li.deleteButton {
@@ -212,5 +219,6 @@ li.deleteButton {
     font-size: 18px;
     background-color: orangered;
     color: #fff;
+    text-align: center;
 }
 
