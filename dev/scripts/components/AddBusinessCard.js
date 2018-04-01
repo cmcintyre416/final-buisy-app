@@ -40,7 +40,7 @@ class AddBusinessCard extends React.Component {
     render() {
         return (
             <div className="addCard">
-                <button onClick={this.handleClose.bind(this)}
+                <button className='x' onClick={this.handleClose.bind(this)}
                 >X</button>
                 <div className="addCard__titleWrapper">
                     <h1 className="addCard__title">Create New Card</h1>
@@ -78,7 +78,7 @@ class AddBusinessCard extends React.Component {
                         onChange={(e) => this.updateForm('interactionNotes', e.target.value)}
                     />
                     <button
-                        className="addCard__inputs"
+                        className="addCard__inputsButton"
                         onClick={this.handleSubmit.bind(this)}>
                         Add
                     </button>
