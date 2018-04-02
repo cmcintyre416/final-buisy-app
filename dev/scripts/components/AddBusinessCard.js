@@ -1,4 +1,6 @@
 import React from 'react';
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
 class AddBusinessCard extends React.Component {
@@ -31,6 +33,8 @@ class AddBusinessCard extends React.Component {
         e.preventDefault()
         const { businessCard } = this.state;
         this.props.getBusinessCardPayload(businessCard);
+        this.props.closeCreateBusinessCard();
+        scroll.scrollToBottom();
     }
 
     handleClose() {

@@ -1,6 +1,9 @@
 import React from 'react';
 import AddBusinessCard from './AddBusinessCard.js';
 import FormatBusinessCard from './FormatBusinessCard.js';
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 class MainView extends React.Component {
     constructor() {
