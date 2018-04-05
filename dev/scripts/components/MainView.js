@@ -1,6 +1,9 @@
 import React from 'react';
 import AddBusinessCard from './AddBusinessCard.js';
 import FormatBusinessCard from './FormatBusinessCard.js';
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 class MainView extends React.Component {
     constructor() {
@@ -60,15 +63,15 @@ class MainView extends React.Component {
     render() {
         return (
             <div>
-            <div className="wrapper">
+            {/* <div className="wrapper"> */}
                 <div className="mainView">
                     <h1>Buisy</h1>
                     <h2>Your Digital Buisiness Card Wallet</h2>
-                    <button onClick={() => this.toggleCreateBusinessCard()}>
+                    <button className="mainView__button" onClick={() => this.toggleCreateBusinessCard()}>
                         Add New Business Card
                     </button>
                 </div>
-            </div>
+            {/* </div> */}
                 <div className="sideBar" ref={ref => this.sideBar = ref}>
                     < AddBusinessCard
                         getBusinessCardPayload={this.getBusinessCardPayload}
