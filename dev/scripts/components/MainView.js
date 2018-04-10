@@ -4,18 +4,19 @@ import FormatBusinessCard from './FormatBusinessCard.js';
 import * as Scroll from 'react-scroll';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
-
 class MainView extends React.Component {
     constructor() {
         super();
 
         this.state = {
             savedCards: [],
+            search: ''
         }
         this.getBusinessCardPayload = this.getBusinessCardPayload.bind(this);
         this.removeBusinessCard = this.removeBusinessCard.bind(this);
         this.toggleCreateBusinessCard = this.toggleCreateBusinessCard.bind(this);
         this.closeCreateBusinessCard = this.closeCreateBusinessCard.bind(this);
+        this.submitCardSearch = this.submitCardSearch.bind(this);
     }
 
     componentDidMount() {
@@ -31,8 +32,6 @@ class MainView extends React.Component {
             })
         });
     }
-    
-
 
     getBusinessCardPayload(cardPayload) {
 
@@ -48,6 +47,19 @@ class MainView extends React.Component {
         dbRef.remove();
     }
 
+    handleChange(e) {
+        console.log(e);
+    }
+
+    submitCardSearch() {
+        this.setState ({
+            search: document.getElementById('searchBar').value
+        })
+
+        if (this.state.search === "JORDAN") {
+            console.log('sweet');
+        }
+    }
 
     toggleCreateBusinessCard() {
         this.sideBar.classList.add("slide-in"); 
@@ -59,8 +71,13 @@ class MainView extends React.Component {
         this.sideBar.classList.add("slide-out");
     }
 
-
     render() {
+        // let filteredCards = this.state.savedCards.name
+        let filteredCards = this.state.savedCards.filter(
+            (cards) => {
+                return cards.name.indexOf(this.state.searchBar) !== -1;
+            }
+        );
         return (
             <div>
             {/* <div className="wrapper"> */}
@@ -80,17 +97,20 @@ class MainView extends React.Component {
                 </div>
                 <div className="formatCard__wrapper">
                     <div className="search__wrapper">
-                        <input id="searchBar" type="search" placeholder="Find Someone"/>
+                        <input onChange={(e) => this.handleChange(e.target.value)} id="searchBar" type="search" placeholder="Find Someone"/>
+                        <button onClick={this.submitCardSearch}>Search</button>
                     </div>
                     <div className="formatCard__scrollThrough">
                         {this.state.savedCards.map((card, i) => {
                             return (
-                                < FormatBusinessCard
-                                    card={card}
-                                    key={`card-${i}`}
-                                    remove={this.removeBusinessCard}
-                                    cardIndex={i}
-                                />
+                                <div>
+                                    < FormatBusinessCard
+                                        card={card}
+                                        key={`card-${i}`}
+                                        remove={this.removeBusinessCard}
+                                        cardIndex={i}
+                                    />
+                                </div>
                             )
                         })}
                     </div>
